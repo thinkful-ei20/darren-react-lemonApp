@@ -1,0 +1,8 @@
+.dropdown-content button{
+  justify-content: space-around;
+  display: flex;
+  color: blue;
+  /* margin-left: 10.5px; */
+}
+
+

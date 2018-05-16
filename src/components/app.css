@@ -1,0 +1,17 @@
+html{
+  display: flex;
+  justify-content: center; 
+  padding-top: 60px;
+}
+
+.app-div{
+  
+  background-color: green;
+  display: flex;
+  justify-content: center;  
+}
+
+.dropdown button {
+  width: 20em;
+  height: 5em;
+}
