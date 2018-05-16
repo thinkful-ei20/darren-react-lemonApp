@@ -9,23 +9,24 @@ export default function Dropdown(props){
 
         <FoodItem 
         name='Lemonade'
-        onClick={(e) => {props.handleLemonClicks(); props.handleTotalClicks();}}
+        onClick={(e) => {props.handleLemonClicks();}}
         clicks={props.lemonClicksTotal} 
         totalValue={props.totalLemonValue}       
         />
 
         <FoodItem 
         name='Hotdog'        
-        onClick={(e) => {props.handleHotdogClicks(); props.handleTotalClicks();}}
-        clicks={props.hotdogClicksTotal}        
+        onClick={(e) => {props.handleHotdogClicks();}}
+        clicks={props.hotdogClicksTotal} 
+        totalValue={props.totalHotdogValue}       
         />
 
         <FoodItem 
         name='Hamburger'
-        onClick={(e) => {props.handleHamburgerClicks(); props.handleTotalClicks();}}
-        clicks={props.hamburgerClicksTotal}        
+        onClick={(e) => {props.handleHamburgerClicks();}}
+        clicks={props.hamburgerClicksTotal}      
+        totalValue={props.totalHamburgerValue} 
         />
-
         
       </div>
   );

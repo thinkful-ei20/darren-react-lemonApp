@@ -7,7 +7,7 @@ export default function Dropdown(props){
   if(!props.dropdownState){
     return (
       <div className="dropdown">
-        <button onClick={props.handleDropdownClick} className="dropbtn">Dropdown!</button>     
+        <button onClick={props.handleDropdownClick} className="dropbtn">Let's Sell Some Stuff!</button>     
       </div>
     )
   }
@@ -15,7 +15,7 @@ export default function Dropdown(props){
   return(
     <div className="dropdown">
       
-      <button onClick={props.handleDropdownClick} className="dropbtn">Dropdown!</button>         
+      <button onClick={props.handleDropdownClick} className="dropbtn">Collapse</button>         
       
       <DropdownContents 
       lemonClicksTotal={props.totalLemonClicksState}
@@ -24,11 +24,12 @@ export default function Dropdown(props){
 
       hotdogClicksTotal={props.totalHotdogClicksState}
       handleHotdogClicks={props.handleHotdogClickState}
+      totalHotdogValue={props.totalHotdogValueState}
 
       hamburgerClicksTotal={props.totalHamburgerClicksState}
       handleHamburgerClicks={props.handleHamburgerClickState}
+      totalHamburgerValue={props.totalHamburgerValueState}
 
-      handleTotalClicks={props.handTotalClicksState}
       />
     </div>
   );

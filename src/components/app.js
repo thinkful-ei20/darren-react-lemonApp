@@ -8,14 +8,21 @@ export default class App extends React.Component{
 
     this.state = {
       dropdownEngaged: false,      
-      lemon: {
+      lemonade: {
         clicks: 0,
         valueTotal: 0,
         increment: 2
       },
-      hotdogClicks: 0,
-      hamburgerClicks: 0,
-      totalClicks: 0
+      hotdog: {
+        clicks: 0,
+        valueTotal: 0,
+        increment: 3
+      },
+      hamburger: {
+        clicks: 0,
+        valueTotal: 0,
+        increment: 5
+      }
     }
   }
 
@@ -27,38 +34,46 @@ export default class App extends React.Component{
 
   handleLemonClicks(){   
     this.setState({
-      lemon : Object.assign({},
-        this.state.lemon,
-        {clicks: this.state.lemon.clicks + 1},
-        {valueTotal:this.state.lemon.valueTotal + this.state.lemon.increment},
+      lemonade : Object.assign({},
+        this.state.lemonade,
+        {clicks: this.state.lemonade.clicks + 1},
+        {valueTotal:this.state.lemonade.valueTotal + this.state.lemonade.increment},
       )
     });
-    console.log('lemon: ',this.state.lemon.clicks +1);
+    console.log('lemonade: ',this.state.lemonade.clicks +1);
   }
+
   handleHotdogClicks(){   
     this.setState({
-      hotdogClicks: this.state.hotdogClicks + 1
+      hotdog : Object.assign({},
+        this.state.hotdog,
+        {clicks: this.state.hotdog.clicks + 1},
+        {valueTotal:this.state.hotdog.valueTotal + this.state.hotdog.increment},
+      )
     });
-    console.log('hotdog: ',this.state.hotdogClicks + 1);
+    console.log('hotdog: ',this.state.hotdog + 1);
   }
+
   handleHamburgerClicks(){   
     this.setState({
-      hamburgerClicks: this.state.hamburgerClicks + 1
+      hamburger : Object.assign({},
+        this.state.hamburger,
+        {clicks: this.state.hamburger.clicks + 1},
+        {valueTotal:this.state.hamburger.valueTotal + this.state.hamburger.increment},
+      )
     });
     console.log('hamburger: ',this.state.hamburgerClicks + 1);
-  }
-  handleTotalClicks(){
-    this.setState({
-      totalClicks: this.state.lemon.clicks + this.state.hotdogClicks + this.state.hamburgerClicks + 1
-    });
   }
 
 
 render(){
   return(
     <div>
-      <h3>
-        Total: {this.state.totalClicks}
+      <h3 className='total-clicks'>
+        Total Clicks: {this.state.lemonade.clicks + this.state.hotdog.clicks + this.state.hamburger.clicks}
+      </h3>
+      <h3 className='total-clicks'>
+        Total Value: ${this.state.lemonade.valueTotal + this.state.hotdog.valueTotal + this.state.hamburger.valueTotal}
       </h3>
       <div className='app-div'>  
 
@@ -66,17 +81,22 @@ render(){
           dropdownState={this.state.dropdownEngaged}
           handleDropdownClick={() => this.handleDropdown()}
 
-          totalLemonClicksState={this.state.lemon.clicks}
+          totalLemonClicksState={this.state.lemonade.clicks}
           handleLemonClickState={() => this.handleLemonClicks()}
-          totalLemonValueState={this.state.lemon.valueTotal}
+          totalLemonValueState={this.state.lemonade.valueTotal}
 
-          totalHotdogClicksState={this.state.hotdogClicks}
+          totalHotdogClicksState={this.state.hotdog.clicks}
           handleHotdogClickState={() => this.handleHotdogClicks()}
+          totalHotdogValueState={this.state.hotdog.valueTotal}
 
-          totalHamburgerClicksState={this.state.hamburgerClicks}
+
+          totalHamburgerClicksState={this.state.hamburger.clicks}
           handleHamburgerClickState={() => this.handleHamburgerClicks()}
+          totalHamburgerValueState={this.state.hamburger.valueTotal}
 
-          handTotalClicksState={() => this.handleTotalClicks()}
+
+   
+
 
           />
         
