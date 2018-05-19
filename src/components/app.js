@@ -57,7 +57,8 @@ export default class App extends React.Component{
         {valueTotal:this.state.hotdog.valueTotal + this.state.hotdog.increment},
       )
     });
-    console.log('hotdog: ',this.state.hotdog + 1);
+    console.log('hotdog: ',this.state.hotdog.clicks + 1);
+    
   }
 
   handleHamburgerClicks(){   
@@ -81,20 +82,30 @@ export default class App extends React.Component{
       )
     });    
   }  
-
+  
   purchaseAutoClicker(){
-    autoClickerRefs.push(setInterval(() => this.handleAutoHotdog(),1000));
+    const grandTotalValue = this.state.lemonade.valueTotal + this.state.hotdog.valueTotal + this.state.hamburger.valueTotal;
+
+    if(grandTotalValue > 75 && autoClickerRefs.length < 1){     
+        autoClickerRefs.push(setInterval(() => this.handleAutoHotdog(),1000));    
+    } else if (grandTotalValue > 150 && autoClickerRefs.length < 2){
+      autoClickerRefs.push(setInterval(() => this.handleAutoHotdog(),1000)); 
+    }    
   }
+  
 
 
 render(){
+  const grandTotalClicks = this.state.lemonade.clicks + this.state.hotdog.clicks + this.state.hamburger.clicks;
+  const grandTotalValue = this.state.lemonade.valueTotal + this.state.hotdog.valueTotal + this.state.hamburger.valueTotal;
+
   return(
     <div>
       <h3 className='total-clicks'>
-        Total Clicks: {this.state.lemonade.clicks + this.state.hotdog.clicks + this.state.hamburger.clicks}
+        Total Clicks: {grandTotalClicks}
       </h3>
       <h3 className='total-clicks'>
-        Total Value: ${this.state.lemonade.valueTotal + this.state.hotdog.valueTotal + this.state.hamburger.valueTotal}
+        Total Value: ${grandTotalValue}
       </h3>
       <div className='app-div'>  
 
