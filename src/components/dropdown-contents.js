@@ -1,5 +1,7 @@
 import React from 'react';
 import FoodItem from './food-item'
+import Employees from './employees'
+
 import './dropdown-contents.css'
 
 export default function Dropdown(props){
@@ -26,6 +28,11 @@ export default function Dropdown(props){
         onClick={(e) => {props.handleHamburgerClicks();}}
         clicks={props.hamburgerClicksTotal}      
         totalValue={props.totalHamburgerValue} 
+        />
+
+        <Employees
+        name='Hotdog Vendor'
+        onClick={(e) => {props.handlePurchase();}}
         />
         
       </div>

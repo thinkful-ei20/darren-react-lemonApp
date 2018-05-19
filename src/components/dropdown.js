@@ -30,6 +30,7 @@ export default function Dropdown(props){
       handleHamburgerClicks={props.handleHamburgerClickState}
       totalHamburgerValue={props.totalHamburgerValueState}
 
+      handlePurchase={props.handlePurchaseState}
       />
     </div>
   );

@@ -2,6 +2,12 @@ import React from 'react';
 import './app.css';
 import Dropdown from './dropdown';
 
+let autoClickerRefs = [
+  
+];
+
+
+
 export default class App extends React.Component{
   constructor(props){
     super(props);
@@ -62,7 +68,22 @@ export default class App extends React.Component{
         {valueTotal:this.state.hamburger.valueTotal + this.state.hamburger.increment},
       )
     });
-    console.log('hamburger: ',this.state.hamburgerClicks + 1);
+    console.log('hamburger: ',this.state.hamburger.clicks + 1);
+  }
+
+  handleAutoHotdog(){
+    console.log('click');
+    this.setState({
+      hotdog: Object.assign({},
+        this.state.hotdog,
+        // {clicks: this.state.hotdog.clicks + 1},
+        {valueTotal:this.state.hotdog.valueTotal + this.state.hotdog.increment},
+      )
+    });    
+  }  
+
+  purchaseAutoClicker(){
+    autoClickerRefs.push(setInterval(() => this.handleAutoHotdog(),1000));
   }
 
 
@@ -94,6 +115,7 @@ render(){
           handleHamburgerClickState={() => this.handleHamburgerClicks()}
           totalHamburgerValueState={this.state.hamburger.valueTotal}
 
+          handlePurchaseState={()=> this.purchaseAutoClicker()}
 
    
 
